@@ -15,7 +15,8 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-  NavbarText
+  NavbarText,
+  Container
 } from 'reactstrap';
 
 const Menu = (props) => {
@@ -25,26 +26,28 @@ const Menu = (props) => {
 
   return (
     <div>
-      <Navbar color="light" light expand="md">
-        <NavbarBrand><Link href="/">Celke Tutorial</Link></NavbarBrand>
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
+      <Navbar color="light" expand="md" className="bg-dark">
+        <Container>
+          <NavbarBrand><Link href="/"><a className="text-white"> Celke Tutorial </a></Link></NavbarBrand>
+          <NavbarToggler onClick={toggle} />
+          <Collapse isOpen={isOpen} navbar>
+            <Nav className="mr-auto" navbar>
 
-            <NavItem>
-              <NavLink><Link href="/"> Início </Link></NavLink>
-            </NavItem>
+              <NavItem>
+                <NavLink><Link href="/"><a className="text-white"> Início </a></Link></NavLink>
+              </NavItem>
 
-            <NavItem>
-              <NavLink><Link href="/sobre"> Sobre </Link></NavLink>
-            </NavItem>
+              <NavItem>
+                <NavLink><Link href="/sobre"><a className="text-white"> Sobre </a></Link></NavLink>
+              </NavItem>
 
-            <NavItem>
-              <NavLink><Link href="/contato"> Contato </Link></NavLink>
-            </NavItem>            
-          </Nav>
+              <NavItem>
+                <NavLink><Link href="/contato"><a className="text-white"> Contato </a></Link></NavLink>
+              </NavItem>            
+            </Nav>
 
-        </Collapse>
+          </Collapse>
+        </Container>
       </Navbar>
     </div>
   );
