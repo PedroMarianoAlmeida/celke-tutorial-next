@@ -3,7 +3,7 @@ import Menu from './../components/Menu'
 
 export default function Home() {
   return (
-    <div>
+    <div className="bg-dark">
       <Menu />
       Home
     </div>
