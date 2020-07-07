@@ -5,8 +5,7 @@ import { Jumbotron, Container } from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
-export default function Home() {
-
+const Home = (data) => {
   return (
     <div>
       <Head>
@@ -47,7 +46,7 @@ export default function Home() {
         </style>
         <Container className="text-center">
           <h1 className="display-4">Serviços da Empresa</h1>
-          <p className="lead">Texto da empresa</p>
+          <p className="lead">{JSON.stringify(data)}</p>
 
           <div className="row">
             <div className="col-lg-4">
@@ -81,4 +80,22 @@ export default function Home() {
       </Jumbotron>
     </div>
   )
+}
+ 
+export default Home;
+
+Home.getInitialProps = async () => {
+  try{
+    const adress = await fetch("https://api.nationalize.io?name=michael");
+    let response = await fetch( adress);
+    console.log(response);
+    //if( !response.ok ) throw Error("Erro no Fetch");
+    let result = await response.json();
+    console.log(result);
+    return { response: result };
+  }
+  catch{
+    return {response: "Desonhecida" };
+  }
+
 }
